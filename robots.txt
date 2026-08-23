@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anfmog.fr/sitemap.xml

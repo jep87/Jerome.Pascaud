@@ -2,9 +2,62 @@
 <html lang="fr"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jérôme PASCAUD</title>
+  <title>Jérôme Pascaud — Développeur .NET, MAUI & applications mobiles</title>
+  <meta name="description" content="Blog et portfolio de Jérôme Pascaud, développeur freelance spécialisé en C#, .NET, .NET MAUI et applications Android/Windows. Tutoriels, retours d'expérience et applications à télécharger.">
+  <meta name="author" content="Jérôme Pascaud">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://anfmog.fr/">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jérôme Pascaud">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="https://anfmog.fr/">
+  <meta property="og:title" content="Jérôme Pascaud — Développeur .NET, MAUI & applications mobiles">
+  <meta property="og:description" content="Blog et portfolio de Jérôme Pascaud, développeur freelance spécialisé en C#, .NET, .NET MAUI et applications Android/Windows. Tutoriels, retours d'expérience et applications à télécharger.">
+  <meta property="og:image" content="https://anfmog.fr/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jérôme Pascaud — Développeur .NET, MAUI & applications mobiles">
+  <meta name="twitter:description" content="Blog et portfolio de Jérôme Pascaud, développeur freelance spécialisé en C#, .NET, .NET MAUI et applications Android/Windows.">
+  <meta name="twitter:image" content="https://anfmog.fr/og-image.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Georgia:ital@0;1&family=Open+Sans:wght@400;600&family=Source+Code+Pro:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Données structurées : identité -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jérôme Pascaud",
+    "url": "https://anfmog.fr/",
+    "jobTitle": "Développeur & concepteur de solutions informatiques",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Limoges",
+      "postalCode": "87000",
+      "addressCountry": "FR"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/jerome-pascaud-1b38a433/"
+    ]
+  }
+  </script>
+
+  <!-- Données structurées : site -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Jérôme Pascaud",
+    "url": "https://anfmog.fr/",
+    "inLanguage": "fr-FR",
+    "author": { "@type": "Person", "name": "Jérôme Pascaud" }
+  }
+  </script>
+  <script type="application/ld+json" id="ld-dynamic"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -57,11 +110,12 @@
 
     .logo {
       font-family: 'Open Sans', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.7rem;
       font-weight: 600;
       color: var(--header-text);
       cursor: pointer;
       letter-spacing: 0.02em;
+      text-decoration: none;
     }
     .logo:hover { color: #bdc3c7; }
 
@@ -112,6 +166,9 @@
     .articles-list {}
 
     .article-item {
+      display: block;
+      color: inherit;
+      text-decoration: none;
       border-bottom: 1px solid var(--border-light);
       padding: 22px 0;
       cursor: pointer;
@@ -579,18 +636,33 @@
       padding: 14px;
       margin-top: 40px;
     }
+
+    .view-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-dim);
+    }
+    .view-count svg {
+      width: 12px;
+      height: 12px;
+      fill: var(--text-dim);
+      flex-shrink: 0;
+    }
+    .article-full-meta .view-count svg { fill: var(--text-muted); }
+    .article-full-meta .view-count { color: var(--text-muted); }
   </style>
 </head>
 <body>
 <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <div class="logo" onclick="showPage('home')">Jérôme PASCAUD</div>
+      <a class="logo" href="#/accueil">Jérôme PASCAUD</a>
       <nav>
-        <a onclick="showPage('home')" id="nav-home" class="">Accueil</a>
-        <a onclick="showPage('cv')" id="nav-cv" class="">Mon CV</a>
-        <a onclick="showPage('indispensables')" id="nav-indispensables" class="">Mes indispensables</a>
-        <a onclick="showPage('applications')" id="nav-applications" class="">Applications</a>
+        <a href="#/accueil" id="nav-home" class="">Accueil</a>
+        <a href="#/cv" id="nav-cv" class="">Mon CV</a>
+        <a href="#/indispensables" id="nav-indispensables" class="">Mes indispensables</a>
+        <a href="#/applications" id="nav-applications" class="">Applications</a>
       </nav>
     </div>
   </header>
@@ -625,7 +697,7 @@
       <div class="container">
         <div class="article-page-wrap">
           <div class="breadcrumb">
-            <a onclick="showPage('home')">Accueil</a>
+            <a href="#/accueil">Accueil</a>
             <span>›</span>
             <span id="breadcrumb-title"></span>
           </div>
@@ -722,7 +794,7 @@
           <div class="apps-grid">
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/HGFj4sO86u3xmnJLu-0GnqLGnMCD6-SmKwl_-H8E6o5q2K0CJY8T_bNvfFg2_llEiMwCKCMMy1QJDncB-xzUMQ" alt="Chamboulelettres">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/HGFj4sO86u3xmnJLu-0GnqLGnMCD6-SmKwl_-H8E6o5q2K0CJY8T_bNvfFg2_llEiMwCKCMMy1QJDncB-xzUMQ" alt="Chamboulelettres">
               <div class="app-card-body">
                 <div class="app-card-name">Chamboulelettres</div>
                 <div class="app-card-desc">Une application qui aide &agrave; trouver des mots &agrave; partir d&apos;un ensemble de lettres donn&eacute;es.</div>
@@ -731,7 +803,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/oPKX4pgRxIWRRrmzCFAY93BQoKdmvR3eFt1QWTplN5nL7Ol1OpnoBBqfztn7SPiWpKCmnMXaPLlYwHL79rXL" alt="MyBloque">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/oPKX4pgRxIWRRrmzCFAY93BQoKdmvR3eFt1QWTplN5nL7Ol1OpnoBBqfztn7SPiWpKCmnMXaPLlYwHL79rXL" alt="MyBloque">
               <div class="app-card-body">
                 <div class="app-card-name">MyBloque</div>
                 <div class="app-card-desc">Un jeu de type puzzle pour t&eacute;l&eacute;phone &mdash; faites tomber et empiler les blocs pour marquer des points.</div>
@@ -740,7 +812,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/j3v6MhKcXRdAg5PBoEcSffNJbqftzQasxI5oibLsYKWOreUzj45afCB4f1t6N9dIHf5CmEnEG0lGFarBhLEQfLs" alt="MyMines">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/j3v6MhKcXRdAg5PBoEcSffNJbqftzQasxI5oibLsYKWOreUzj45afCB4f1t6N9dIHf5CmEnEG0lGFarBhLEQfLs" alt="MyMines">
               <div class="app-card-body">
                 <div class="app-card-name">MyMines</div>
                 <div class="app-card-desc">Un d&eacute;mineur simple et moderne pour mobile &mdash; trouvez toutes les mines sans en d&eacute;clencher aucune !</div>
@@ -749,7 +821,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/gz5Qj-AQpyhPrYApNwUFzacWSOyhHTRsmBRAGTvFx3i2O03DELxC85U2IMWGlinMnzBaYbTP4bSlubnksEf4Mg" alt="MyScrollingText">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/gz5Qj-AQpyhPrYApNwUFzacWSOyhHTRsmBRAGTvFx3i2O03DELxC85U2IMWGlinMnzBaYbTP4bSlubnksEf4Mg" alt="MyScrollingText">
               <div class="app-card-body">
                 <div class="app-card-name">MyScrollingText</div>
                 <div class="app-card-desc">Affichez des bandeaux de texte d&eacute;filants sur votre &eacute;cran &mdash; id&eacute;al pour afficher des messages ou des annonces.</div>
@@ -758,7 +830,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/WogNrBFFJ9FNhdGwKEJY7hdnw_h9bbt2yJhkq8XYFBHbeuRFRYRR2S_0HRj70X805t7Eq_YnEm6pW-841vvQXQ" alt="QRCodeGen">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/WogNrBFFJ9FNhdGwKEJY7hdnw_h9bbt2yJhkq8XYFBHbeuRFRYRR2S_0HRj70X805t7Eq_YnEm6pW-841vvQXQ" alt="QRCodeGen">
               <div class="app-card-body">
                 <div class="app-card-name">QRCodeGen</div>
                 <div class="app-card-desc">G&eacute;n&eacute;rez des QR codes personnalis&eacute;s directement depuis votre t&eacute;l&eacute;phone, rapidement et simplement.</div>
@@ -767,7 +839,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/ulHxDcUVmZi5cp7QfoHRjZ7ZHuk5zzx70mjwdbFZtDyPk1QpulGv6ytL1jAoBz9jUA" alt="Temps relatif">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/ulHxDcUVmZi5cp7QfoHRjZ7ZHuk5zzx70mjwdbFZtDyPk1QpulGv6ytL1jAoBz9jUA" alt="Temps relatif">
               <div class="app-card-body">
                 <div class="app-card-name">Temps relatif</div>
                 <div class="app-card-desc">Calculez un temps de trajet en fonction de la vitesse &mdash; un outil pratique pour les randonneurs et sportifs.</div>
@@ -776,7 +848,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/79NBBLlZc3jb36dF4kDIedzCAmdkpcVQNizifrFlYQZ3Sux2-kLo4PiVWE8KRcDvbgHAvZ1cQbNndnNNlomQTiA" alt="My.SOS">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/79NBBLlZc3jb36dF4kDIedzCAmdkpcVQNizifrFlYQZ3Sux2-kLo4PiVWE8KRcDvbgHAvZ1cQbNndnNNlomQTiA" alt="My.SOS">
               <div class="app-card-body">
                 <div class="app-card-name">My.SOS</div>
                 <div class="app-card-desc">Envoyez un message SOS accompagn&eacute; de votre position &agrave; un ou plusieurs num&eacute;ros enregistr&eacute;s en cas d&apos;urgence.</div>
@@ -785,7 +857,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/HLjo1eX7kmD3nf8XPPode4eGhq8BoUtW1Tk5k6GXutGnrm1qIPqz2VHJPugLm0run_W9WKLzJFnhz5JnBXsDaw" alt="MyIP">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/HLjo1eX7kmD3nf8XPPode4eGhq8BoUtW1Tk5k6GXutGnrm1qIPqz2VHJPugLm0run_W9WKLzJFnhz5JnBXsDaw" alt="MyIP">
               <div class="app-card-body">
                 <div class="app-card-name">MyIP</div>
                 <div class="app-card-desc">Analysez vos adresses IP (IPv4/IPv6), effectuez des pings, g&eacute;olocalisez une IP et consultez les informations de votre r&eacute;seau Wi-Fi.</div>
@@ -794,7 +866,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/LqPkMlzR8XhpcKlf4Dad_9zD9HwkiZwh19k9Cr3Wct0txyslhj2SnIJtS1XPnhWx0kFZR-OVN1RZA0VJG0vBFQ" alt="MyD&eacute;">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/LqPkMlzR8XhpcKlf4Dad_9zD9HwkiZwh19k9Cr3Wct0txyslhj2SnIJtS1XPnhWx0kFZR-OVN1RZA0VJG0vBFQ" alt="MyD&eacute;">
               <div class="app-card-body">
                 <div class="app-card-name">MyD&eacute;</div>
                 <div class="app-card-desc">Lancez des d&eacute;s (D4 &agrave; D12) ou jouez &agrave; pile ou face &mdash; secouez votre t&eacute;l&eacute;phone pour lancer, avec historique et animations.</div>
@@ -803,7 +875,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/pWmUYL5YNLquXjINNmzyrYAiTQj178008lyDJuBur-fj9krlkOO3FHOrgwnL42g96vokhNviwpR873D9CoPC3I0" alt="MyBiorythme">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/pWmUYL5YNLquXjINNmzyrYAiTQj178008lyDJuBur-fj9krlkOO3FHOrgwnL42g96vokhNviwpR873D9CoPC3I0" alt="MyBiorythme">
               <div class="app-card-body">
                 <div class="app-card-name">MyBiorythme</div>
                 <div class="app-card-desc">Calculez et visualisez vos 3 cycles de biorythme (physique, &eacute;motionnel, intellectuel) sous forme de courbe sur 7 jours.</div>
@@ -812,7 +884,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/cPvnPucyvNSK0pgIaGJciiseAvN24CmlbwZrkoYyUCr1h-ZSa2yWsvmpT2Mk-mNFGa3VE2-9rWXKW6ojXSbVyw" alt="MyNFC">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/cPvnPucyvNSK0pgIaGJciiseAvN24CmlbwZrkoYyUCr1h-ZSa2yWsvmpT2Mk-mNFGa3VE2-9rWXKW6ojXSbVyw" alt="MyNFC">
               <div class="app-card-body">
                 <div class="app-card-name">MyNFC</div>
                 <div class="app-card-desc">Lisez, &eacute;crivez et g&eacute;rez vos tags NFC (NDEF et Mifare Classic) &mdash; d&eacute;tection automatique et configuration personnalisable.</div>
@@ -821,7 +893,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/bCPZxvvt9BN423qbYU03hUorPWrG3dG3I4KBq2552yg3er3qdMOpH8wYa43_-sg2uvpphN_wJT-yt9P7nLZT2g" alt="MyAdverbes">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/bCPZxvvt9BN423qbYU03hUorPWrG3dG3I4KBq2552yg3er3qdMOpH8wYa43_-sg2uvpphN_wJT-yt9P7nLZT2g" alt="MyAdverbes">
               <div class="app-card-body">
                 <div class="app-card-name">MyAdverbes</div>
                 <div class="app-card-desc">Apprenez l&apos;orthographe des adverbes et mots invariants fran&ccedil;ais gr&acirc;ce &agrave; quatre types d&apos;exercices ludiques.</div>
@@ -830,7 +902,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/YvfS7xQfNeZ9YAjoa8CTpUzWRnCljq5SL6mJ2iXi2nHCS5gQxBfMGDyvNpWzJSgy5nrMycpF9p799yp1qZ8QJbE" alt="Batidrive">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/YvfS7xQfNeZ9YAjoa8CTpUzWRnCljq5SL6mJ2iXi2nHCS5gQxBfMGDyvNpWzJSgy5nrMycpF9p799yp1qZ8QJbE" alt="Batidrive">
               <div class="app-card-body">
                 <div class="app-card-name">Batidrive</div>
                 <div class="app-card-desc">Application de gestion des demandes d&apos;approvisionnement de chantier pour les &eacute;quipes du b&acirc;timent &mdash; saisie hors ligne, transmise automatiquement au d&eacute;p&ocirc;t.</div>
@@ -839,7 +911,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/hV-oGY1wplA8b1-U1OooF4n4CtLJinE7yp8d4BV7AIuVGQH-oxGzJWZJsiBDrWGrjNN2_ZHMw9PzHjdMU4xebw" alt="NormaXL">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/hV-oGY1wplA8b1-U1OooF4n4CtLJinE7yp8d4BV7AIuVGQH-oxGzJWZJsiBDrWGrjNN2_ZHMw9PzHjdMU4xebw" alt="NormaXL">
               <div class="app-card-body">
                 <div class="app-card-name">NormaXL</div>
                 <div class="app-card-desc">Application configurable de saisie de donn&eacute;es par douchette ou t&eacute;l&eacute;phone &mdash; inventaires, mouvements de stock et commandes, compatible Sage 100c, EBP et autres logiciels de gestion.</div>
@@ -848,7 +920,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/NzwAP5ppcZtE_VXPJGnhvp0TtM0Ei0DqXcr5bjR0E_6FeMUTx2Ww2wG1z5VkMgineEInUnBRAwMxC7Qxy68alww" alt="Create Commande">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/NzwAP5ppcZtE_VXPJGnhvp0TtM0Ei0DqXcr5bjR0E_6FeMUTx2Ww2wG1z5VkMgineEInUnBRAwMxC7Qxy68alww" alt="Create Commande">
               <div class="app-card-body">
                 <div class="app-card-name">Create Commande</div>
                 <div class="app-card-desc">Application destin&eacute;e aux commerciaux itin&eacute;rants pour cr&eacute;er des commandes clients, scanner les articles et suivre l&apos;historique des envois.</div>
@@ -857,7 +929,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/ochBVebA1wlU7xYqrGZp3RZF6zVOAiOE2jGMo2lk45dznjJwfBRxyTnN5ytDzsJK5Yohd5nJUIctAs__9rfnPg" alt="MySudoku">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/ochBVebA1wlU7xYqrGZp3RZF6zVOAiOE2jGMo2lk45dznjJwfBRxyTnN5ytDzsJK5Yohd5nJUIctAs__9rfnPg" alt="MySudoku">
               <div class="app-card-body">
                 <div class="app-card-name">MySudoku</div>
                 <div class="app-card-desc">Un jeu de Sudoku moderne d&eacute;velopp&eacute; en .NET MAUI, avec plusieurs niveaux de difficult&eacute; et sauvegarde de partie.</div>
@@ -866,7 +938,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/Uyf0IbPlR0g8eJ6vQAGRSURA_-keDu0n_hE5CifFPB7nl4gpotksDVbFr2uAvaVFQRXuxzLwttiWNgpq0SCR" alt="Limoges Pratique">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/Uyf0IbPlR0g8eJ6vQAGRSURA_-keDu0n_hE5CifFPB7nl4gpotksDVbFr2uAvaVFQRXuxzLwttiWNgpq0SCR" alt="Limoges Pratique">
               <div class="app-card-body">
                 <div class="app-card-name">Limoges Pratique</div>
                 <div class="app-card-desc">Le guide pratique de Limoges &mdash; plus de 54 rubriques d&apos;adresses locales : restaurants, commerces, loisirs et associations.</div>
@@ -875,7 +947,7 @@
             </div>
 
             <div class="app-card">
-              <img class="app-card-img" src="https://play-lh.googleusercontent.com/XaS01RJCD6aEDeUh168exM70E4iCw6rSgysqsHHRLU1XsdWMLnUdiCk52g61VScOgyHItKAbRUMV7Eo1KqHd7w" alt="War of Color">
+              <img class="app-card-img" loading="lazy" src="https://play-lh.googleusercontent.com/XaS01RJCD6aEDeUh168exM70E4iCw6rSgysqsHHRLU1XsdWMLnUdiCk52g61VScOgyHItKAbRUMV7Eo1KqHd7w" alt="War of Color">
               <div class="app-card-body">
                 <div class="app-card-name">War of Color</div>
                 <div class="app-card-desc">Un jeu de puzzle et de strat&eacute;gie &mdash; recouvrez tout le plateau en choisissant des couleurs depuis un coin, en solo, contre l&apos;Android, en local &agrave; deux ou en r&eacute;seau Wi-Fi.</div>
@@ -907,6 +979,98 @@
     }
 
     // ═══════════════════════════════════════════════
+    // SEO : mise à jour dynamique du <title>, des meta
+    // tags et des données structurées selon la page
+    // ═══════════════════════════════════════════════
+    const SITE_URL = 'https://anfmog.fr/';
+    const SITE_NAME = 'Jérôme Pascaud';
+    const DEFAULT_IMAGE = SITE_URL + 'og-image.png';
+
+    function setPageMeta({ title, description, url, image }) {
+      const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+      document.title = fullTitle;
+
+      const setMeta = (selector, content) => {
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute('content', content);
+      };
+      setMeta('meta[name="description"]', description);
+      setMeta('meta[property="og:title"]', fullTitle);
+      setMeta('meta[property="og:description"]', description);
+      setMeta('meta[property="og:url"]', url);
+      setMeta('meta[property="og:image"]', image || DEFAULT_IMAGE);
+      setMeta('meta[name="twitter:title"]', fullTitle);
+      setMeta('meta[name="twitter:description"]', description);
+      setMeta('meta[name="twitter:image"]', image || DEFAULT_IMAGE);
+
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) canonical.setAttribute('href', url);
+    }
+
+    function setStructuredData(obj) {
+      const el = document.getElementById('ld-dynamic');
+      if (el) el.textContent = JSON.stringify(obj);
+    }
+
+    function toIsoDate(frDateStr) {
+      const d = parseFrenchDate(frDateStr);
+      return isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
+    }
+
+    const PAGE_META = {
+      home: {
+        title: 'Mon blog',
+        description: "Blog et portfolio de Jérôme Pascaud, développeur freelance spécialisé en C#, .NET, .NET MAUI et applications Android/Windows. Tutoriels et retours d'expérience.",
+        url: SITE_URL
+      },
+      cv: {
+        title: 'Mon CV',
+        description: "CV de Jérôme Pascaud, développeur et concepteur de solutions informatiques à Limoges, plus de 25 ans d'expérience en C#, .NET et systèmes industriels.",
+        url: SITE_URL + '#/cv'
+      },
+      indispensables: {
+        title: 'Mes indispensables',
+        description: "Outils, logiciels, livres et films recommandés par Jérôme Pascaud, développeur .NET.",
+        url: SITE_URL + '#/indispensables'
+      },
+      applications: {
+        title: 'Applications',
+        description: "Applications Android et Windows développées par Jérôme Pascaud : jeux, utilitaires et outils pratiques.",
+        url: SITE_URL + '#/applications'
+      }
+    };
+
+    function applyStaticPageSeo(page) {
+      const meta = PAGE_META[page];
+      if (!meta) return;
+      setPageMeta(meta);
+      if (page === 'home') {
+        setStructuredData({
+          '@context': 'https://schema.org',
+          '@type': 'Blog',
+          name: 'Mon blog',
+          url: SITE_URL,
+          author: { '@type': 'Person', name: SITE_NAME },
+          blogPost: sortByDateDesc(articles).slice(0, 20).map(a => ({
+            '@type': 'BlogPosting',
+            headline: a.title,
+            url: SITE_URL + '#/article/' + a.id,
+            datePublished: toIsoDate(a.date),
+            author: { '@type': 'Person', name: a.author || SITE_NAME }
+          }))
+        });
+      } else {
+        setStructuredData({
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: meta.title,
+          url: meta.url,
+          isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL }
+        });
+      }
+    }
+
+    // ═══════════════════════════════════════════════
     // NAVIGATION
     // ═══════════════════════════════════════════════
     function showPage(page) {
@@ -926,6 +1090,7 @@
       } else if (page === 'applications') {
         document.getElementById('nav-applications').classList.add('active');
       }
+      applyStaticPageSeo(page);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -965,19 +1130,20 @@
         </div>`;
       } else {
         grid.innerHTML = sortByDateDesc(articles).map(a => `
-          <div class="article-item" onclick="openArticle(${a.id})">
-            ${a.cover ? `<img class="article-item-cover" src="${a.cover}" alt="${a.title}">` : ''}
+          <a class="article-item" href="#/article/${a.id}">
+            ${a.cover ? `<img class="article-item-cover" src="${a.cover}" alt="${a.title}" loading="lazy">` : ''}
             <div class="article-item-meta">
               <span class="article-item-tag">${a.category}</span>
-              <span>${a.date}</span>
+              <time datetime="${toIsoDate(a.date)}">${a.date}</time>
               <span>Par ${a.author}</span>
             </div>
             <h2>${a.title}</h2>
             <p>${a.excerpt}</p>
             <div class="article-item-footer">
               <span class="read-more">Lire la suite »</span>
+              ${viewCountBadge(a.id)}
             </div>
-          </div>
+          </a>
         `).join('');
       }
       renderSidebar();
@@ -992,7 +1158,7 @@
         catEl.innerHTML = '<span style="font-size:0.78rem;color:var(--text-dim)">Aucune catégorie</span>';
       } else {
         catEl.innerHTML = Object.entries(cats).map(([cat, count]) =>
-          `<a class="sidebar-link" onclick="filterByCategory('${cat}')">${cat} <span style="float:right;color:var(--text-dim)">(${count})</span></a>`
+          `<a class="sidebar-link" href="#/categorie/${encodeURIComponent(cat)}">${cat} <span style="float:right;color:var(--text-dim)">(${count})</span></a>`
         ).join('');
       }
       // Recent
@@ -1002,7 +1168,7 @@
         recentEl.innerHTML = '<span style="font-size:0.78rem;color:var(--text-dim)">Aucun article</span>';
       } else {
         recentEl.innerHTML = recent.map(a =>
-          `<a class="sidebar-link" onclick="openArticle(${a.id})">${a.title}</a>`
+          `<a class="sidebar-link" href="#/article/${a.id}">${a.title}</a>`
         ).join('');
       }
     }
@@ -1013,20 +1179,20 @@
       grid.innerHTML = `
         <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:14px;display:flex;align-items:center;gap:10px;">
           Catégorie : <strong>${cat}</strong>
-          <a onclick="renderArticles()" style="color:var(--accent);cursor:pointer;margin-left:8px;">× Effacer le filtre</a>
+          <a href="#/accueil" style="color:var(--accent);cursor:pointer;margin-left:8px;">× Effacer le filtre</a>
         </div>
       ` + filtered.map(a => `
-        <div class="article-item" onclick="openArticle(${a.id})">
-          ${a.cover ? `<img class="article-item-cover" src="${a.cover}" alt="${a.title}">` : ''}
+        <a class="article-item" href="#/article/${a.id}">
+          ${a.cover ? `<img class="article-item-cover" src="${a.cover}" alt="${a.title}" loading="lazy">` : ''}
           <div class="article-item-meta">
             <span class="article-item-tag">${a.category}</span>
-            <span>${a.date}</span>
+            <time datetime="${toIsoDate(a.date)}">${a.date}</time>
             <span>Par ${a.author}</span>
           </div>
           <h2>${a.title}</h2>
           <p>${a.excerpt}</p>
-          <div class="article-item-footer"><span class="read-more">Lire la suite »</span></div>
-        </div>
+          <div class="article-item-footer"><span class="read-more">Lire la suite »</span>${viewCountBadge(a.id)}</div>
+        </a>
       `).join('');
     }
 
@@ -1180,24 +1346,62 @@
     function openArticle(id) {
       const a = articles.find(x => x.id === id);
       if (!a) return;
+      const views = incrementArticleViews(id);
       document.getElementById('breadcrumb-title').textContent = a.title;
       document.getElementById('article-meta').innerHTML = `
         <span class="article-item-tag">${a.category}</span>
-        <span>${a.date}</span>
+        <time datetime="${toIsoDate(a.date)}">${a.date}</time>
         <span>Par ${a.author}</span>
+        <span class="view-count"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>${views} vue${views > 1 ? 's' : ''}</span>
       `;
       document.getElementById('article-title').textContent = a.title;
       document.getElementById('article-intro').textContent = a.excerpt;
       const coverEl = document.getElementById('article-cover');
       if (a.cover) {
         coverEl.src = a.cover;
+        coverEl.alt = a.title;
         coverEl.style.display = 'block';
       } else {
         coverEl.style.display = 'none';
       }
       document.getElementById('article-body').innerHTML = a.body;
       highlightCodeBlocks(document.getElementById('article-body'));
+      enhanceArticleImages(document.getElementById('article-body'), a.title);
       showPage('article');
+
+      const description = (a.excerpt || '').slice(0, 155);
+      const url = SITE_URL + '#/article/' + a.id;
+      setPageMeta({ title: a.title, description, url, image: a.cover });
+      setStructuredData({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: a.title,
+        description,
+        url,
+        datePublished: toIsoDate(a.date),
+        articleSection: a.category,
+        image: a.cover || DEFAULT_IMAGE,
+        author: { '@type': 'Person', name: a.author || SITE_NAME },
+        isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL }
+      });
+    }
+
+    // Complète les images d'un article avec un attribut alt (à partir du nom
+    // de fichier) et le chargement différé, quand l'auteur ne les a pas fournis
+    function enhanceArticleImages(container, fallbackAlt) {
+      if (!container) return;
+      container.querySelectorAll('img').forEach(img => {
+        if (!img.hasAttribute('alt') || img.getAttribute('alt').trim() === '') {
+          let alt = fallbackAlt || '';
+          try {
+            const filename = decodeURIComponent(img.src.split('/').pop().split('?')[0]);
+            const nameOnly = filename.replace(/\.[a-z0-9]+$/i, '').replace(/[-_]+/g, ' ').trim();
+            if (nameOnly) alt = nameOnly;
+          } catch (e) { /* on garde le fallback */ }
+          img.setAttribute('alt', alt);
+        }
+        if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+      });
     }
 
 
@@ -1217,7 +1421,74 @@
         highlightCodeBlocks(bodyEl);
       }
     }
-    showPage('home');
+    // ═══════════════════════════════════════════════
+    // COMPTEUR DE VUES LOCAL PAR ARTICLE
+    // (stocké dans le navigateur du visiteur via localStorage)
+    // ═══════════════════════════════════════════════
+    const VIEWS_STORAGE_KEY = 'article-views';
+
+    function getAllArticleViews() {
+      try {
+        return JSON.parse(localStorage.getItem(VIEWS_STORAGE_KEY)) || {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function getArticleViews(id) {
+      const views = getAllArticleViews();
+      return views[id] || 0;
+    }
+
+    function incrementArticleViews(id) {
+      const views = getAllArticleViews();
+      views[id] = (views[id] || 0) + 1;
+      try {
+        localStorage.setItem(VIEWS_STORAGE_KEY, JSON.stringify(views));
+      } catch (e) {
+        // localStorage indisponible (navigation privée, quota...) : on ignore silencieusement
+      }
+      return views[id];
+    }
+
+    function viewCountBadge(id) {
+      const count = getArticleViews(id);
+      return `<span class="view-count"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>${count} vue${count > 1 ? 's' : ''}</span>`;
+    }
+
+    // ═══════════════════════════════════════════════
+    // ROUTAGE (URL en #/... pour des liens partageables
+    // et une navigation crawlable)
+    // ═══════════════════════════════════════════════
+    function router() {
+      const hash = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
+      const [route, param] = hash.split('/').filter(Boolean);
+
+      if (!route || route === 'accueil') {
+        showPage('home');
+      } else if (route === 'cv') {
+        showPage('cv');
+      } else if (route === 'indispensables') {
+        showPage('indispensables');
+      } else if (route === 'applications') {
+        showPage('applications');
+      } else if (route === 'article' && param) {
+        const id = Number(param);
+        if (articles.some(a => a.id === id)) {
+          openArticle(id);
+        } else {
+          showPage('home');
+        }
+      } else if (route === 'categorie' && param) {
+        showPage('home');
+        filterByCategory(param);
+      } else {
+        showPage('home');
+      }
+    }
+
+    window.addEventListener('hashchange', router);
+    router();
 
   </script>
 </body></html>
